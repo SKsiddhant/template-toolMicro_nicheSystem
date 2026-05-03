@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Timetable Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📅 Smart Timetable Generator</h1>
+            <p>Optimize your study hours automatically.</p>
+        </header>
+
+        <main>
+            <section class="setup-section">
+                <h2>1. Setup Your Subjects</h2>
+                <div id="subject-inputs">
+                    <div class="input-group">
+                        <input type="text" placeholder="Subject Name (e.g., Math)" class="subject-name">
+                        <input type="number" placeholder="Priority (1-5)" class="subject-priority" min="1" max="5">
+                    </div>
+                </div>
+                <button id="add-subject" class="btn-secondary">+ Add Subject</button>
+            </section>
+
+            <section class="time-section">
+                <h2>2. Available Study Hours</h2>
+                <div class="input-group">
+                    <label for="daily-hours">Hours per day:</label>
+                    <input type="number" id="daily-hours" value="4" min="1" max="16">
+                </div>
+            </section>
+
+            <button id="generate-btn" class="btn-primary">Generate My Timetable 🚀</button>
+
+            <section id="timetable-output" class="hidden">
+                <h2>3. Your Optimized Timetable</h2>
+                <div id="timetable-display"></div>
+                <button id="download-pdf" class="btn-success">Download as PDF 📥</button>
+            </section>
+
+            <section class="premium-shop">
+                <h2>⭐ Upgrade Your Results</h2>
+                <div class="shop-grid">
+                    <div class="shop-item">
+                        <h3>95%+ Topper Pack</h3>
+                        <p>The exact hourly schedule used by rank holders.</p>
+                        <span class="price">₹49</span>
+                        <a href="#" class="btn-buy">Get Access</a>
+                    </div>
+                    <div class="shop-item">
+                        <h3>Exam Mode Sprint</h3>
+                        <p>14-day high-intensity plan for final exams.</p>
+                        <span class="price">₹99</span>
+                        <a href="#" class="btn-buy">Get Access</a>
+                    </div>
+                    <div class="shop-item">
+                        <h3>NEET/JEE Strategizer</h3>
+                        <p>Strategic balance for heavy competitive subjects.</p>
+                        <span class="price">₹99</span>
+                        <a href="#" class="btn-buy">Get Access</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Ready to level up? <a href="#">Check out our Premium Topper Templates</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
