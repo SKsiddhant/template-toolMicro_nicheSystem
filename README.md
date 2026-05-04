@@ -1,21 +1,38 @@
-# 🚀 Template + Tool Micro-Niche System
+# 📅 Smart Timetable Generator
 
-This folder contains the core framework for building and monetizing micro-niche digital assets. 
+An automated, priority-weighted study planner for students and developers.
 
-## 🛠️ System Components
-- **The Tool:** A free, high-value web utility (e.g., Smart Timetable Generator) to drive organic search traffic.
-- **The Templates:** Premium, downloadable assets (Topper Packs, Exam Sprints) for immediate monetization.
-- **The Marketing Engine:** Pre-written SEO blogs and social media strategies to automate growth.
+## 🚀 Live Demo
+You can access the live tool here: [Check it out on GitHub Pages!](https://github.com/) 
+*(Note: Replace this link with your actual GitHub Pages URL once you push)*
 
-## 📈 Monetization Strategy
-1. **Free Tool:** Hosts on GitHub Pages to capture "high-intent" search queries.
-2. **Value Add:** Provides immediate utility to students/developers.
-3. **Upsell:** Directs users to Gumroad/Payhip for premium template packs.
+## ✨ Features
+- **Priority Logic:** Automatically allocates study hours based on subject difficulty (1-5).
+- **Instant Generation:** Get an optimized schedule in seconds.
+- **PDF Export:** Download your timetable for easy printing or mobile viewing.
+- **Responsive UI:** Modern, clean design optimized for students.
 
-## 🤖 Automation Workflow
-- **Content:** AI-generated SEO blogs and social media hooks.
-- **Design:** Bulk-created Canva templates for Pinterest/Instagram.
-- **Sales:** Passive income via digital product platforms.
+## 💰 Premium Assets
+Inside the tool, you'll find access to our high-value study packs:
+- **95%+ Topper Timetable Pack**
+- **Exam Mode Intensive Sprint**
+- **NEET/JEE Strategic Planner**
 
----
-*Part of the Smart Timetable Generator Project.*
+## 🛠️ Tech Stack
+- HTML5 / CSS3 (Vanilla)
+- JavaScript (ES6+)
+- [html2pdf.js](https://github.com/eKoopmans/html2pdf.js) for PDF generation.
+
+## 📈 Monetization Strategy (Micro-Niche)
+This project is part of a "Template + Tool Micro-Niche" system. It provides a free tool to drive search traffic, which then upsells premium, high-value assets.
+
+**Premium Assets:**
+- Topper Timetable Pack
+- Exam Mode Intensive Sprint
+- NEET/JEE Strategic Planner
+
+## 🤝 Contributing
+Contributions are welcome! Whether it's a bug fix or a new feature, feel free to open a PR.
+
+## 📄 License
+MIT License
