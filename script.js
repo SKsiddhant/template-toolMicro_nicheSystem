@@ -19,68 +19,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Generate Timetable Logic
     generateBtn.addEventListener('click', () => {
-        const subjects = [];
-        const nameInputs = document.querySelectorAll('.subject-name');
-        const priorityInputs = document.querySelectorAll('.subject-priority');
+        const names = document.querySelectorAll('.subject-name');
+        const priorities = document.querySelectorAll('.subject-priority');
+        const subjects = Array.from(names).map((input, i) => ({ name: input.value, priority: priorities[i].value }));
         const totalHours = parseFloat(document.getElementById('daily-hours').value);
 
-        let totalPriority = 0;
-
-        nameInputs.forEach((input, index) => {
-            const name = input.value.trim();
-            const priority = parseInt(priorityInputs[index].value) || 1;
-            if (name) {
-                subjects.push({ name, priority });
-                totalPriority += priority;
-            }
-        });
-
-        if (subjects.length === 0) {
-            alert('Please add at least one subject!');
+        if (!Number.isFinite(totalHours) || totalHours < 1 || totalHours > 16) {
+            alert('Please enter between 1 and 16 study hours per day.');
             return;
         }
 
-        // Calculate hours per subject based on priority weight
-        const timetable = subjects.map(s => {
-            const allocatedHours = (s.priority / totalPriority) * totalHours;
-            return {
-                name: s.name,
-                hours: allocatedHours.toFixed(1)
-            };
-        });
+        const timetable = allocateHours(subjects, totalHours);
+        if (timetable.length === 0) {
+            alert('Please add at least one subject!');
+            return;
+        }
 
         renderTimetable(timetable);
         timetableOutput.classList.remove('hidden');
         timetableOutput.scrollIntoView({ behavior: 'smooth' });
     });
 
+    // Built with DOM APIs and textContent: subject names are user input and were pasted into innerHTML.
     function renderTimetable(data) {
-        let html = `
-            <table>
-                <thead>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Recommended Daily Hours</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-
-        data.forEach(item => {
-            html += `
-                <tr>
-                    <td><strong>${item.name}</strong></td>
-                    <td>${item.hours} hrs</td>
-                </tr>
-            `;
+        const table = document.createElement('table');
+        table.innerHTML = '<thead><tr><th>Subject</th><th>Recommended Daily Hours</th></tr></thead>';
+        const tbody = document.createElement('tbody');
+        data.forEach((item) => {
+            const tr = document.createElement('tr');
+            const name = document.createElement('td');
+            const strong = document.createElement('strong');
+            strong.textContent = item.name;
+            name.appendChild(strong);
+            const hours = document.createElement('td');
+            hours.textContent = `${item.hours.toFixed(1)} hrs`;
+            tr.append(name, hours);
+            tbody.appendChild(tr);
         });
-
-        html += `
-                </tbody>
-            </table>
-        `;
-
-        timetableDisplay.innerHTML = html;
+        table.appendChild(tbody);
+        timetableDisplay.replaceChildren(table);
     }
 
     // 3. Download PDF
@@ -94,6 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
 
+        if (typeof html2pdf === 'undefined') {
+            alert('PDF export could not load (check your connection). You can still print this page.');
+            return;
+        }
         html2pdf().set(opt).from(element).save();
     });
 });
