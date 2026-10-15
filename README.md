@@ -3,8 +3,8 @@
 An automated, priority-weighted study planner for students and developers.
 
 ## 🚀 Live Demo
-You can access the live tool here: [Check it out on GitHub Pages!](https://github.com/) 
-*(Note: Replace this link with your actual GitHub Pages URL once you push)*
+Enable GitHub Pages for this repository (Settings -> Pages -> deploy from `main`, root folder); the tool is then served at `https://<your-username>.github.io/<repo-name>/`.
+To run it locally just open `index.html` in a browser (no build step).
 
 ## ✨ Features
 - **Priority Logic:** Automatically allocates study hours based on subject difficulty (1-5).
@@ -30,6 +30,12 @@ This project is part of a "Template + Tool Micro-Niche" system. It provides a fr
 - Topper Timetable Pack
 - Exam Mode Intensive Sprint
 - NEET/JEE Strategic Planner
+
+## 🧪 Tests
+```bash
+node --test tests/*.test.js
+```
+The allocation logic lives in `allocate.js`; the tests need no dependencies.
 
 ## 🤝 Contributing
 Contributions are welcome! Whether it's a bug fix or a new feature, feel free to open a PR.
